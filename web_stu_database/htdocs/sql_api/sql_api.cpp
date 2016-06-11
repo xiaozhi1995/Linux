@@ -3,7 +3,7 @@ sql_api::sql_api()
 :_conn_fd(NULL),
 _host("127.0.0.1"),
 _user("root"),
-_passwd("lxj"),
+_passwd(""),
 _db("9_class"),
 _port(3306),
 _res(NULL)
@@ -38,28 +38,43 @@ bool sql_api::insert_mysql(string name,string school,string hobby)
 	_sql+="','";
 	_sql+=hobby;
 	_sql+="')";
-	//cout<<_sql<<endl;
+//	cout<<_sql<<endl;
+//	cout<<"insert\n"<<endl;
 	return _op_sql(_sql);
 }
-bool sql_api::delete_mysql()
+bool sql_api::delete_mysql(string name)
 {
 	bool ret=false;
-	return ret;
+	string _sql="delete from stu where name='";
+	_sql+=name;
+	_sql+="'";
+	//cout<<_sql<<endl;
+	return _op_sql(_sql);
 }
 bool sql_api::select_mysql()
 {
 	return _select_mysql();
 }
-bool sql_api::updata_mysql()
+bool sql_api::updata_mysql(string school)
 {
 	bool ret=false;
-
+	//updata stu set something='1';
+	string _sql="update stu set school='";
+	if(strcmp(school.c_str(),"")==0)
+	{
+		return ret;	
+	}
+	//update 
+	_sql+=school;
+	_sql+="'";
+	return _op_sql(_sql);
 }
 bool sql_api::_select_mysql()
 {
 	int _row=0;
 	int _field=0;
-	_res=(MYSQL_RES*)malloc(2048);
+	_res=(MYSQL_RES*)malloc(sizeof(MYSQL_RES));
+	memset(_res,'\0',2048);
 	_res=mysql_store_result(_conn_fd);
 	if(_res)
 	{
@@ -74,6 +89,8 @@ bool sql_api::_select_mysql()
 		}
 		cout<<endl;
 	}
+	cout<<"select no;\n";
+	cout<<"row:"<<_row<<"field:"<<_field<<endl;
 	MYSQL_ROW row_line;
 	while(_row)
 	{
@@ -93,7 +110,7 @@ bool sql_api::_op_sql(string _sql)
 	if(0==mysql_query(_conn_fd,_sql.c_str()))
 	{
 		ret=true;
-		cout<<"insert success"<<endl;
+		cout<<_sql<<" success"<<endl;
 	}
 	return ret;
 }
