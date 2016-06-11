@@ -1,3 +1,5 @@
+.PHONY:output
+output:cgi_client
 cgi_client:cgi_client.cpp
 	g++ -o $@ $^
 .PHONY:clean

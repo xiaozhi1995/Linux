@@ -190,7 +190,7 @@ void execute_cgi(bf_p bf)
 		printLog(strerror(errno),__FUNCTION__,__LINE__);
 		exit(1);
 	}
-	printf("exxxxxxxxxxxxxxx");
+//	printf("exxxxxxxxxxxxxxx");
 	if((id=fork())<0)
 	{
 		printLog(strerror(errno),__FUNCTION__,__LINE__);
@@ -229,7 +229,7 @@ void execute_cgi(bf_p bf)
 		memset(bf->_buf,'\0',sizeof(bf->_buf));
 		char* status_line="HTTP/1.0 200 ok\r\n\r\n";
 		sprintf(bf->_buf,status_line,strlen(status_line));
-		printf("response\n");
+//		printf("response\n");
 	    int i=strlen(bf->_buf);
 		while(read(out_fds[0],&ch,1)>0)
 		{
@@ -336,7 +336,7 @@ void accept_request(void* ptr)
 	{
 		bf->_cgi=1;
 	}
-	printf("%d:%s\n",bf->_cgi,bf->_path);
+//	printf("%d:%s\n",bf->_cgi,bf->_path);
 	if(bf->_err==0)
 	{
 		if(bf->_cgi)

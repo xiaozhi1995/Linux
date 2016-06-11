@@ -4,7 +4,7 @@ FLAGS=#_DEBUG1_
 CC=gcc
 BIN=httpd
 
-CGI_BIN=htdocs/cgi_bin sql_api
+CGI_BIN=htdocs/cgi_bin htdocs/sql_api
 SRC=$(shell ls *.c)
 OBJ=$(SRC:.c=.o)
 
@@ -44,7 +44,7 @@ output:$(BIN) cgi
 	@cp -f httpd output/
 	@cp -f start.sh output/
 	@cp -rf conf output
-	@cp -rf sql_api output/
+	@mkdir -p output/htdocs/sql_api
 	@for name in `echo $(CGI_BIN)`;\
 	do\
 		cd $$name;\

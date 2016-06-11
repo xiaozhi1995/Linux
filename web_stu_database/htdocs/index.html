@@ -3,16 +3,27 @@
 		<h1>hello</h1>
 	</head>
 	<body>
+	<h1>INSERT</h1>
 	<form action="sql_api/sql_cgi_insert" method="GET">
 		name:<input type="text" name="name"/><br/>
 		school:<input type="text" name="school"/><br/>
 		hobby:<input type="text" name="hobby"/><br/>
-		<input type="submit"/><br/>
+		<input type="submit" value="insert"/><br/>
 	</form>
-	<img src="1.jpg"/>
-	<h1>select</h1>		
+	<img src="1.jpg" width="200" height="180"/>
+	<h1>SELECT</h1>		
 	<form action="sql_api/sql_cgi_select" method="GET">
-		<input type="submit"/><br/>
+		<input type="submit" value="show all"/><br/>
 	</form>
+	<h1>UPDATA</h1>
+	<form action="sql_api/sql_cgi_updata" method="GET">
+		updata school:<input type="text" name="school"/><br/>
+		<input type="submit" value="updataschool"/><br/>
+     </form>
+	 <h1>DELETE</h1>
+	 <form action="sql_api/sql_cgi_delete" method="GET">
+		delete name:<input type="text" name="name"/><br/>
+		<input type="submit" value="deletenamestu"/><br/>
+	 </form>
 	</body>
 </html>
