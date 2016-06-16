@@ -42,11 +42,11 @@ bool sql_api::insert_mysql(string name,string school,string hobby)
 //	cout<<"insert\n"<<endl;
 	return _op_sql(_sql);
 }
-bool sql_api::delete_mysql(int id,string name)
+bool sql_api::delete_mysql(string id,string name)
 {
 	bool ret=false;
 	string _sql="delete from stu where id=";
-	_sql+=id+'0';
+	_sql+=id;
 	_sql+=" and name='";
 	_sql+=name;
 	_sql+="'";
@@ -55,20 +55,35 @@ bool sql_api::delete_mysql(int id,string name)
 }
 bool sql_api::select_mysql()
 {
+	string _sql="select* from stu";//must
+	_op_sql(_sql);
 	return _select_mysql();
 }
-bool sql_api::updata_mysql(int id,string name,string school,string hobby)
+bool sql_api::select_name_school(string name,string school)
+{
+	bool ret=false;
+	string _sql="select* from stu where name='";
+	_sql+=name;
+	_sql+="' and school='";
+	_sql+=school;
+	_sql+="'";
+	//cout<<_sql<<endl;
+	_op_sql(_sql);
+	return _select_mysql();
+}
+
+bool sql_api::updata_mysql(string id,string name,string school,string hobby)
 {
 	bool ret=false;
 	//updata stu set something='1';
 	string _sql="update stu set name='";
 	_sql+=name;
-	_sql+="' school='";
+	_sql+="',school='";
 	_sql+=school;
-	_sql+="' hobby='";
+	_sql+="',hobby='";
 	_sql+=hobby;
 	_sql+="' where id=";
-	_sql+=id+'0';
+	_sql+=id;
 	//cout<<id<<_sql<<endl;
 	return _op_sql(_sql);
 }
@@ -78,8 +93,6 @@ bool sql_api::_select_mysql()
 	int _field=0;
 	//_res=(MYSQL_RES*)malloc(sizeof(MYSQL_RES));//not require
 	//memset(_res,'\0',2048);//not require
-	string _sql="select* from stu";//must
-	_op_sql(_sql);
 	_res=mysql_store_result(_conn_fd);
 	if(_res)
 	{

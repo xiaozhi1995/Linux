@@ -5,29 +5,35 @@
 	<body>
 	<h1>INSERT</h1>
 	<form action="sql_api/sql_cgi_insert" method="GET">
-		name:<input type="text" name="name"/><br/>
+		name:  <input type="text" name="name"/><br/>
 		school:<input type="text" name="school"/><br/>
-		hobby:<input type="text" name="hobby"/><br/>
-		<input type="submit" value="insert"/><br/>
+		hobby: <input type="text" name="hobby"/><br/>
+		       <input type="submit" value="insert"/><br/>
 	</form>
-	<img src="1.jpg" width="200" height="180"/>
 	<h1>SELECT</h1>		
 	<form action="sql_api/sql_cgi_select" method="GET">
-		<input type="submit" value="show all"/><br/>
+		       <input type="submit" value="show all"/><br/>
+	</form>
+	</form>
+	<h1>SELECT NAME SCHOOl</h1>		
+	<form action="sql_api/sql_cgi_select_name" method="GET">
+		name:  <input type="text" name="name"/><br/>
+		school:<input type="text" name="school"/><br/>
+		       <input type="submit" value="show"/><br/>
 	</form>
 	<h1>UPDATA</h1>
 	<form action="sql_api/sql_cgi_updata" method="GET">
-		id: <input type="text" name="id"/><br/>
-		name:<input type="text" name="name"/><br/>
+		id:    <input type="text" name="id"/><br/>
+		name:  <input type="text" name="name"/><br/>
 		school:<input type="text" name="school"/><br/>
-		hobby:<input type="text" name="hobby"/><br/>
-		<input type="submit" value="updata"/><br/>
+		hobby: <input type="text" name="hobby"/><br/>
+		       <input type="submit" value="updata"/><br/>
      </form>
 	 <h1>DELETE</h1>
 	 <form action="sql_api/sql_cgi_delete" method="GET">
-		id: <input type="text" name="id"/><br/>
+		id:         <input type="text" name="id"/><br/>
 		delete name:<input type="text" name="name"/><br/>
-		<input type="submit" value="deleten"/><br/>
+		            <input type="submit" value="deleten"/><br/>
 	 </form>
 	</body>
 </html>

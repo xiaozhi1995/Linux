@@ -32,7 +32,6 @@ int main()
 	anly_query(query_string,ret);
 	sql_api _tb;;
 	_tb.connect_mysql();
-	_tb.delete_mysql(ret[1],ret[0]);
-	//_tb.select_mysql();
+	_tb.select_name_school(ret[1],ret[0]);
 	return 0;
 }
