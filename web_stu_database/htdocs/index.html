@@ -17,13 +17,17 @@
 	</form>
 	<h1>UPDATA</h1>
 	<form action="sql_api/sql_cgi_updata" method="GET">
-		updata school:<input type="text" name="school"/><br/>
-		<input type="submit" value="updataschool"/><br/>
+		id: <input type="text" name="id"/><br/>
+		name:<input type="text" name="name"/><br/>
+		school:<input type="text" name="school"/><br/>
+		hobby:<input type="text" name="hobby"/><br/>
+		<input type="submit" value="updata"/><br/>
      </form>
 	 <h1>DELETE</h1>
 	 <form action="sql_api/sql_cgi_delete" method="GET">
+		id: <input type="text" name="id"/><br/>
 		delete name:<input type="text" name="name"/><br/>
-		<input type="submit" value="deletenamestu"/><br/>
+		<input type="submit" value="deleten"/><br/>
 	 </form>
 	</body>
 </html>

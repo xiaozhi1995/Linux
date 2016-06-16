@@ -42,10 +42,12 @@ bool sql_api::insert_mysql(string name,string school,string hobby)
 //	cout<<"insert\n"<<endl;
 	return _op_sql(_sql);
 }
-bool sql_api::delete_mysql(string name)
+bool sql_api::delete_mysql(int id,string name)
 {
 	bool ret=false;
-	string _sql="delete from stu where name='";
+	string _sql="delete from stu where id=";
+	_sql+=id+'0';
+	_sql+=" and name='";
 	_sql+=name;
 	_sql+="'";
 	//cout<<_sql<<endl;
@@ -55,18 +57,19 @@ bool sql_api::select_mysql()
 {
 	return _select_mysql();
 }
-bool sql_api::updata_mysql(string school)
+bool sql_api::updata_mysql(int id,string name,string school,string hobby)
 {
 	bool ret=false;
 	//updata stu set something='1';
-	string _sql="update stu set school='";
-	if(strcmp(school.c_str(),"")==0)
-	{
-		return ret;	
-	}
-	//update 
+	string _sql="update stu set name='";
+	_sql+=name;
+	_sql+="' school='";
 	_sql+=school;
-	_sql+="'";
+	_sql+="' hobby='";
+	_sql+=hobby;
+	_sql+="' where id=";
+	_sql+=id+'0';
+	//cout<<id<<_sql<<endl;
 	return _op_sql(_sql);
 }
 bool sql_api::_select_mysql()

@@ -29,11 +29,10 @@ int main()
 		}
 	}
 	vector<string> ret;
-	//string query_string=name=tom;
 	anly_query(query_string,ret);
 	sql_api _tb;;
 	_tb.connect_mysql();
-	_tb.delete_mysql(ret[0]);
+	_tb.delete_mysql(atoi(ret[1].c_str()),ret[0]);
 	//_tb.select_mysql();
 	return 0;
 }

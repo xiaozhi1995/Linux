@@ -13,9 +13,9 @@ public:
 	bool connect_mysql();
 	bool close_mysql();
 	bool insert_mysql(string name,string school,string hobby);
-	bool delete_mysql(string name);
+	bool delete_mysql(int id,string name);
 	bool select_mysql();
-	bool updata_mysql(string school);
+	bool updata_mysql(int id,string name,string school,string hobby);
 private:
 	bool _select_mysql();
 	bool _op_sql(string _sql);

@@ -29,11 +29,12 @@ int main()
 		}
 	}
 	vector<string> ret;
-	//string query_string=school=xpu;
 	anly_query(query_string,ret);
 	sql_api _tb;;
 	_tb.connect_mysql();
-	_tb.updata_mysql(ret[0]);
+	cout<<ret[3]<<ret[2]<<ret[1]<<ret[0];
+	_tb.updata_mysql(atoi(ret[3].c_str()),ret[2],ret[1],ret[0]);
+	//_tb.updata_mysql(2,"haha","xpu","sss");
 	//_tb.select_mysql();
 	return 0;
 }
